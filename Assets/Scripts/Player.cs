@@ -3,9 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -44,6 +42,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!gameManager.gameGoing) return;
         if (inJump) return;
         if (Input.GetKeyDown(KeyCode.W) && !inJump)
         {
@@ -99,6 +98,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (!gameManager.gameGoing) return;
         if (!inJump) return;
 
         var layerWall = LayerMask.NameToLayer("Walls");
@@ -129,6 +129,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!gameManager.gameGoing) return;
         if (!inJump) return;
 
         if (collision.gameObject.CompareTag("Dot"))

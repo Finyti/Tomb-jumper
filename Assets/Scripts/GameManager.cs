@@ -1,4 +1,3 @@
-using DG.Tweening.Core.Easing;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -55,6 +54,7 @@ public class GameManager : MonoBehaviour
         
         if(currentScene.name == null) 
         {
+            gameGoing = true;
             currentScene = SceneManager.GetActiveScene();
         }
         await new WaitForSeconds(1);
