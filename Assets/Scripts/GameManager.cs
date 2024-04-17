@@ -33,8 +33,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         currentScene = SceneManager.GetActiveScene();
-        ResetCollectables();
-        CountCollectables();
     }
     private void Awake()
     {
